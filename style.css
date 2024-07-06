@@ -1,0 +1,136 @@
+/* Import Google font - Poppins */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  background: rgb(231, 231, 231);
+}
+.container {
+  position: relative;
+  max-width: 600px;
+  width: 100%;
+  background: rgb(255, 255, 255);
+  padding: 15px;
+  border-radius: 4px;
+  box-shadow: 0 0 4px rgb(1, 1, 1);
+  max-height: 90vh; /* Batasi tinggi container */
+  overflow-y: auto; /* Tambahkan scroll jika melebihi tinggi */
+}
+.container header {
+  height: 70px;
+  background: rgb(1, 1, 1);
+  border-radius: 10px;
+  font-size: 1.5rem;
+  color: rgb(255, 255, 255);
+  font-weight: 500;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.container .form {
+  margin-top: 10px;
+}
+.form .input-box {
+  width: 100%;
+  margin-top: 15px;
+}
+.input-box label {
+  color: rgb(1, 1, 1);
+  font-weight: 500;
+  display: block;
+  margin-bottom: 5px;
+}
+.form :where(.input-box input, ) {
+  position: relative;
+  height: 40px;
+  width: 100%;
+  outline: none;
+  font-size: 1rem;
+  color: #707070;
+  margin-top: 8px;
+  border: 1px solid rgb(1, 1, 1);
+  border-radius: 10px;
+  padding: 0 10px;
+  background: rgb(245, 245, 245);
+}
+.input-box input:focus {
+  box-shadow: 0 2px 0 rgb(1, 1, 1);
+}
+.gender-box {
+  margin-top: 15px;
+}
+.gender-box label {
+  color: rgb(1, 1, 1);
+  font-size: 1rem;
+  font-weight: 400;
+  margin-bottom: 2px;
+}
+.hari-radio {
+  margin-top: 15px;
+}
+.waktu-radio {
+  margin-top: 15px;
+}
+.form :where(.gender-option, .gender, ) {
+  display: flex;
+  align-items: center;
+  column-gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+.form .gender {
+  column-gap: 8px;
+}
+.form :where(.hari-option, .radio, ) {
+  display: flex;
+  align-items: center;
+  column-gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+.form :where(.waktu-option, .radio, ) {
+  display: flex;
+  align-items: center;
+  column-gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+.form :where(.hari-option, .waktu-option, ) {
+  column-gap: 8px;
+}
+.form .radio-option {
+  margin-top: 4px;
+}
+.form :where(.hari-radio input, .waktu-radio input, .gender input) {
+  cursor: pointer;
+  accent-color: rgb(1, 1, 1);
+}
+.form :where(.hari-radio label, .waktu-radio label, .gender label) {
+  color: rgb(1, 1, 1);
+}
+.form .form-button {
+  height: 40px;
+  width: 100%;
+  color: rgb(255, 255, 255);
+  font-size: 1rem;
+  font-weight: 400;
+  margin-top: 20px;
+  border: rgb(1, 1, 1);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: rgb(42, 106, 233);
+  border-radius: 10px;
+}
+.form .form-button:hover {
+  background: rgb(0, 52, 194);
+}
