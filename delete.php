@@ -1,17 +1,20 @@
 <?php
 include 'config.php';
 
-if (isset($_GET['id'])) {
-    $id = $_GET['id'];
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $id = $_POST['id'];
 
-    $sql = "DELETE FROM pendaftaran WHERE id=$id";
+    $sql = "DELETE FROM pendaftaran WHERE id = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("i", $id);
 
-    if ($conn->query($sql) === TRUE) {
-        echo "Data berhasil dihapus";
+    if ($stmt->execute()) {
+        echo "success";
     } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
+        echo "error";
     }
 
+    $stmt->close();
     $conn->close();
 }
 ?>

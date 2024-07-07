@@ -17,14 +17,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $sql = "INSERT INTO pendaftaran (nama_lengkap, tanggal_lahir, gender, kelas, alamat, nama_orang_tua, pekerjaan_orang_tua, no_telepon_orang_tua, program_kursus, hari_kursus, waktu_kursus)
     VALUES ('$nama_lengkap', '$tanggal_lahir', '$gender', '$kelas', '$alamat', '$nama_orang_tua', '$pekerjaan_orang_tua', '$no_telepon_orang_tua', '$program_kursus', '$hari_kursus', '$waktu_kursus')";
 
-if ($conn->query($sql) === TRUE) {
-    echo "Data berhasil disimpan!";
-} else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
-}
+    if ($conn->query($sql) === TRUE) {
+        echo json_encode(["status" => "success", "message" => "Data berhasil disimpan!"]);
+    } else {
+        echo json_encode(["status" => "error", "message" => "Error: " . $sql . "<br>" . $conn->error]);
+    }
 
-$conn->close();
+    $conn->close();
 }
 ?>
-
-

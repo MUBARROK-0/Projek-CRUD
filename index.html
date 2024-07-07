@@ -4,13 +4,36 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Formulir biodata</title>
+    <title>Formulir Biodata</title>
     <link rel="stylesheet" href="style.css" />
+    <script>
+      function submitForm(event) {
+        event.preventDefault();
+
+        var formData = new FormData(document.getElementById("pendaftaranForm"));
+
+        fetch("process.php", {
+          method: "POST",
+          body: formData,
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            if (data.status === "success") {
+              alert(data.message);
+            } else {
+              alert(data.message);
+            }
+          })
+          .catch((error) => {
+            alert("Terjadi kesalahan: " + error);
+          });
+      }
+    </script>
   </head>
   <body>
     <section class="container">
       <header>Masukan Data Peserta</header>
-      <form action="process.php" method="post" class="form">
+      <form id="pendaftaranForm" onsubmit="submitForm(event)" class="form">
         <div class="input-box">
           <label>Nama Lengkap</label>
           <input

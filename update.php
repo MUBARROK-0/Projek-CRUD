@@ -30,9 +30,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             WHERE id=$id";
 
     if ($conn->query($sql) === TRUE) {
-        echo "Data berhasil diperbarui";
+        echo json_encode(["status" => "success", "message" => "Data berhasil diperbarui"]);
     } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
+        echo json_encode(["status" => "error", "message" => "Error: " . $sql . "<br>" . $conn->error]);
     }
 
     $conn->close();

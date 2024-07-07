@@ -133,11 +133,30 @@ if (isset($_GET['id'])) {
             box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5);
         }
     </style>
+    <script>
+        function handleSubmit(event) {
+            event.preventDefault(); // Mencegah pengalihan form
+            const formData = new FormData(event.target);
+
+            fetch('update.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.text())
+            .then(data => {
+                alert('Data berhasil diperbarui'); // Menampilkan pesan pop-up
+                console.log(data); // Optional: Log the response for debugging
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        }
+    </script>
 </head>
 <body>
 <section class="container">
     <header>Edit Data Peserta</header>
-    <form action="update.php" method="post" class="form">
+    <form action="update.php" method="post" class="form" onsubmit="handleSubmit(event)">
         <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
 
         <div class="input-box">
