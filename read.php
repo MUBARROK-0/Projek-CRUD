@@ -163,10 +163,10 @@ $result = $conn->query($sql);
                   </tr>";
         }
         echo "</table>";
-        echo "<a href='index.html' class='back-btn'>Kembali</a>";
+        echo "<a href='admin_panel.php' class='back-btn'>Kembali</a>";
     } else {
         echo "0 results";
-        echo "<a href='index.html' class='back-btn'>Kembali</a>";
+        echo "<a href='admin_panel.php' class='back-btn'>Kembali</a>";
     }
 
     $conn->close();
